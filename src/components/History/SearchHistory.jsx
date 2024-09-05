@@ -32,14 +32,14 @@ const History = () => {
   return (
     <>
       <div className="flex w-full flex-col items-center gap-1 overflow-y-scroll">
-        <h3>History</h3>
+        <h3 className="mt-3.5 font-semibold">History</h3>
       </div>
       <div
-        className="flex h-full w-full flex-col items-center gap-5 overflow-y-scroll p-5"
+        className="flex h-full w-full flex-col items-center gap-5 overflow-y-scroll p-3"
         ref={scrollableDivRef}
       >
         {history.length > 0 &&
-          history.map(movie => (
+          [...history].reverse().map(movie => (
             <div className="w-full" id={movie.imdbID} key={movie.imdbID}>
               <HistoryCard info={movie} />
             </div>
