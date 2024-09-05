@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./MoviePreviewCard.css";
+
 import { useMovie } from "../../store/MovieStore";
 
 const MoviePreviewCard = ({ info, extrainfo }) => {
@@ -19,7 +21,8 @@ const MoviePreviewCard = ({ info, extrainfo }) => {
   if (extrainfo) {
     return (
       <div
-        className="min-h-72 flex w-48 cursor-pointer flex-col items-center gap-1"
+        // className="min-h-72 flex w-48 cursor-pointer flex-col items-center gap-1"
+        className="movie-preview-card"
         onClick={handleClick}
       >
         <img alt="" className="h-[90%]" src={extrainfo && extrainfo.Poster} />
@@ -36,7 +39,8 @@ const MoviePreviewCard = ({ info, extrainfo }) => {
 
   return (
     <div
-      className="flex h-72 w-48 cursor-pointer flex-col items-center"
+      // className="flex h-72 w-48 cursor-pointer flex-col items-center"
+      className="movie-preview-card"
       onClick={handleClick}
     >
       <img alt="" className="h-[90%]" src={info && info.Poster} />

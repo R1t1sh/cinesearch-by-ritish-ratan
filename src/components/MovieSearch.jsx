@@ -55,9 +55,9 @@ const MovieSearch = () => {
             <>
               {movieList &&
                 movieList.length > 0 &&
-                movieList.map(itm => (
-                  <MoviePreviewCard info={itm} key={itm.imdbID} />
-                ))}
+                movieList
+                  .reverse()
+                  .map(itm => <MoviePreviewCard info={itm} key={itm.imdbID} />)}
             </>
           )}
         </div>

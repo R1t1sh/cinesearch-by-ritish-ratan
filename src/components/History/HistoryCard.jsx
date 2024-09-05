@@ -12,7 +12,7 @@ const HistoryCard = ({ info }) => {
 
   return (
     <div
-      className={`bg-slate-600 flex  h-6 w-full cursor-pointer items-center justify-center rounded-xl p-2 text-white ${
+      className={`bg-slate-600 flex h-full w-full cursor-pointer items-center justify-center rounded-xl p-2 text-white ${
         String(info.imdbID) === String(currentMovie?.imdbID)
           ? "bg-purple-600"
           : "bg-purple-200"
