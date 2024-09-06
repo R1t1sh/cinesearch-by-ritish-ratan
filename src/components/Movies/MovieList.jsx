@@ -27,15 +27,11 @@ const MovieList = () => {
     ["extraInfo", currentMovie],
     () => fetchExtraInfo(currentMovie),
     {
-      enabled: !!currentMovie, // Only fetch when a movie is selected
+      enabled: !!currentMovie,
     }
   );
 
   if (isLoading) return <Spinner />;
-
-  if (!currentMovie && !isLoading) {
-    return <h2>Please select a movie from search result to see details</h2>;
-  }
 
   if (error) {
     console.error("Error fetching movie data:", error);

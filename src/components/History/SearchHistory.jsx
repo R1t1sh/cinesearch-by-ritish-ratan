@@ -6,7 +6,6 @@ import { useMovie } from "../../store/MovieStore";
 
 const History = () => {
   const { currentMovie, history } = useMovie();
-  console.log("hist", history);
   const scrollableDivRef = useRef(null);
 
   const scrollToElement = id => {
@@ -20,22 +19,24 @@ const History = () => {
   };
 
   useEffect(() => {
-    if (currentMovie && history.some(movie => movie.imdbID === currentMovie)) {
-      scrollToElement(currentMovie);
-      console.log(
-        "Current movie found in history, scrolling to:",
-        currentMovie
-      );
+    if (history.length > 0 && currentMovie) {
+      if (history.some(movie => movie.imdbID === currentMovie.imdbID)) {
+        scrollToElement(currentMovie.imdbID);
+        console.log(
+          "Current movie found in history, scrolling to:",
+          currentMovie.imdbID
+        );
+      }
     }
   }, [currentMovie, history]);
 
   return (
     <>
-      <div className="flex w-full flex-col items-center gap-1 overflow-y-scroll">
-        <h3 className="mt-3.5 font-semibold">History</h3>
+      <div className="mt-3 flex w-full flex-col items-center gap-1 font-bold">
+        <h3>History</h3>
       </div>
       <div
-        className="flex h-full w-full flex-col items-center gap-5 overflow-y-scroll p-3"
+        className="flex h-full w-full flex-col items-center gap-2 overflow-y-auto p-2 no-scrollbar"
         ref={scrollableDivRef}
       >
         {history.length > 0 &&

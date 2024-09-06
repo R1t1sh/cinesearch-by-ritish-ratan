@@ -19,11 +19,18 @@ const MoviePreviewCard = ({ info, extrainfo }) => {
   if (extrainfo) {
     return (
       <div
-        className="min-h-62 flex w-48 cursor-pointer flex-col items-center gap-1"
+        className="min-h-55 flex w-48 cursor-pointer flex-col items-center gap-1 rounded-md border-b-2 border-gray-400
+       p-2 shadow-md transition-transform duration-300 ease-linear hover:scale-105 hover:shadow-lg"
         onClick={handleClick}
       >
-        <img alt="" className="h-[90%]" src={extrainfo && extrainfo.Poster} />
-        <h5 className="h-[10%]">{extrainfo && extrainfo.Title}</h5>
+        <img
+          alt=""
+          className="h-[70%] w-[100%] rounded-sm object-contain"
+          src={info && info.Poster}
+        />
+        <h5 className="text-gray-900 m-0 mt-2 h-[10%] text-center text-sm font-bold">
+          {info && info.Title}
+        </h5>
         <h5 className="h-[10%]">
           {" "}
           {extrainfo && extrainfo?.Language?.split(",")[0]}
@@ -36,11 +43,18 @@ const MoviePreviewCard = ({ info, extrainfo }) => {
 
   return (
     <div
-      className="h-62 flex w-48 cursor-pointer flex-col items-center"
+      className="min-h-55 flex w-48 cursor-pointer flex-col items-center gap-1 rounded-md border border-gray-400
+       p-2 shadow-md transition-transform duration-300 ease-linear hover:scale-105 hover:shadow-lg"
       onClick={handleClick}
     >
-      <img alt="" className="h-[90%]" src={info && info.Poster} />
-      <h5 className="h-[10%]">{info && info.Title}</h5>
+      <img
+        alt=""
+        className="h-[60%] w-[100%] rounded-sm object-contain"
+        src={info && info.Poster}
+      />
+      <h5 className="text-gray-900 m-0 mt-2 h-[10%] text-center text-sm font-bold">
+        {info && info.Title}
+      </h5>
     </div>
   );
 };
