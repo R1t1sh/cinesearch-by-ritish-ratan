@@ -1,9 +1,10 @@
 import React from "react";
 
-import { useMovie } from "../../store/MovieStore";
+import useMovieStore from "../../store/useMovieStore";
 
 const HistoryCard = ({ info }) => {
-  const { currentMovie, setCurrentMovie } = useMovie();
+  const { currentMovie, setCurrentMovie } = useMovieStore();
+
   const handleClick = () => {
     setCurrentMovie(info);
   };

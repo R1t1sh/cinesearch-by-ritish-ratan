@@ -2,10 +2,10 @@ import React, { useEffect, useRef } from "react";
 
 import HistoryCard from "./HistoryCard";
 
-import { useMovie } from "../../store/MovieStore";
+import useMovieStore from "../../store/useMovieStore";
 
 const History = () => {
-  const { currentMovie, history } = useMovie();
+  const { currentMovie, history } = useMovieStore();
   const scrollableDivRef = useRef(null);
 
   const scrollToElement = id => {

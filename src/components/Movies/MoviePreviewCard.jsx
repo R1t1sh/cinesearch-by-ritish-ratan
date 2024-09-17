@@ -1,18 +1,18 @@
 import React from "react";
 
-import { useMovie } from "../../store/MovieStore";
+import useMovieStore from "../../store/useMovieStore";
 
 const MoviePreviewCard = ({ info, extrainfo }) => {
   console.log("info", info, "extra", extrainfo);
 
-  const { setCurrentMovie, history, setHistory } = useMovie(); //skipped current movie
+  const { setCurrentMovie, history, setHistory } = useMovieStore();
+
   const handleClick = () => {
     if (!info) return;
     setCurrentMovie(info);
-    if (!history.includes(info)) {
+    if (!history.some(movie => movie.imdbID === info.imdbID)) {
       setHistory([...history, info]);
     }
-
     console.log(info.imdbID);
   };
 
@@ -32,7 +32,6 @@ const MoviePreviewCard = ({ info, extrainfo }) => {
           {info && info.Title}
         </h5>
         <h5 className="h-[10%]">
-          {" "}
           {extrainfo && extrainfo?.Language?.split(",")[0]}
         </h5>
         <h5 className="h-[10%]"> {extrainfo && extrainfo?.Type}</h5>

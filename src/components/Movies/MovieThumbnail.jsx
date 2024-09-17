@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 
 import { Spinner } from "@bigbinary/neetoui";
 
-import { useMovie } from "../../store/MovieStore";
+import useMovieStore from "../../store/useMovieStore";
 
 const MovieThumbnail = () => {
-  const { currentMovie } = useMovie();
+  const { currentMovie } = useMovieStore();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -13,7 +13,7 @@ const MovieThumbnail = () => {
       setLoading(true);
       const timer = setTimeout(() => setLoading(false), 100);
 
-      return () => clearTimeout(timer); // Cleanup function for clearing timeout
+      return () => clearTimeout(timer);
     }
 
     // Add a return in case currentMovie is falsy

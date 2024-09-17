@@ -6,7 +6,7 @@ import axios from "axios";
 
 import MoviePreviewCard from "./Movies/MoviePreviewCard";
 
-import { useMovie } from "../store/MovieStore";
+import useMovieStore from "../store/useMovieStore";
 
 const debounce = (func, delay) => {
   let timer;
@@ -19,7 +19,7 @@ const debounce = (func, delay) => {
 
 const MovieSearch = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const { currentMovie } = useMovie(); // SKIPPED SETCURRENTMOVIE
+  const { currentMovie } = useMovieStore();
   const [movieList, setMovieList] = useState(null);
   const [error, setError] = useState("");
   const [query, setQuery] = useState("");

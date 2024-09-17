@@ -6,10 +6,10 @@ import axios from "axios";
 
 import MoviePreviewCard from "./MoviePreviewCard";
 
-import { useMovie } from "../../store/MovieStore";
+import useMovieStore from "../../store/useMovieStore";
 
 const MovieList = () => {
-  const { currentMovie } = useMovie();
+  const { currentMovie } = useMovieStore();
 
   const fetchExtraInfo = async currentMovie => {
     const response = await axios.get(
